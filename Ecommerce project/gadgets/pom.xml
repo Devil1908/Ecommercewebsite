@@ -1,6 +1,7 @@
 <project 
-	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	xmlns="http://maven.apache.org/POM/4.0.0"
+	 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.niit</groupId>
 	<artifactId>gadgets</artifactId>
@@ -32,7 +33,7 @@
     <version>4.3.8.RELEASE</version>
 </dependency>
  <!-- 3dependencies for multipart -->
-<!-- <dependency>
+ <dependency>
     <groupId>javax</groupId>
     <artifactId>javaee-api</artifactId>
     <version>7.0</version>
@@ -46,23 +47,28 @@
     <groupId>commons-io</groupId>
     <artifactId>commons-io</artifactId>
     <version>2.5</version>
-</dependency>-->
+</dependency>
 <dependency>
     <groupId>commons-fileupload</groupId>
     <artifactId>commons-fileupload</artifactId>
     <version>1.3.2</version>
 </dependency>
-<dependency>
+<!--  <dependency>
 			<groupId>org.slf4j</groupId>
   			<artifactId>slf4j-api</artifactId>
   			<version>1.7.21</version>
-		</dependency> 
+		</dependency> --> 
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-core</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
-
+<!-- Logging dependencies -->
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.17</version>
+		</dependency>   
 <!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
 <dependency>
     <groupId>com.google.code.gson</groupId>
