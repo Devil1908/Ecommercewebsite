@@ -5,6 +5,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
+
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.*;
 import org.springframework.ui.Model;
@@ -26,7 +28,9 @@ import com.niit.gadgets.dao.CartDAO;
 
 @Controller
 public class HomeController {
-	
+	private static final Logger logger = Logger.getLogger(HomeController.class);
+
+     
 	@Autowired
 	ProductDAO productDao;
 	public void ProductDAO(ProductDAO productDao)
@@ -81,7 +85,7 @@ public class HomeController {
 		int age=Integer.parseInt(request.getParameter("age"));
 		String phone=request.getParameter("phone");
 		String pass=request.getParameter("passwd");
-		System.out.println("haoiii"+name+"mail"+"add"+add+"age"+age+"phone"+phone+"pass"+pass);
+		logger.info("haoiii"+name+"mail"+"add"+add+"age"+age+"phone"+phone+"pass"+pass);
 		User u=new User();
 		u.setU_mail(mail);
 		u.setAge(age);
@@ -89,7 +93,7 @@ public class HomeController {
 		u.setPhone(phone);
 		u.setRole("role");
 		userDao.persist(u);
-		System.out.println("Mother Earth");
+		logger.info("Mother Earth");
 		
 		 mv = new ModelAndView("index");
 	   }catch(Exception ex)
@@ -162,7 +166,7 @@ ModelAndView mv = new ModelAndView("index");
 		}catch(Exception ex)
 		{
 			m=new ModelAndView("ErrorPage","error",ex);
-			System.out.println(ex.getMessage());
+			logger.info(ex.getMessage());
 		}finally
 		{
 			
@@ -209,7 +213,7 @@ ModelAndView mv = new ModelAndView("index");
 		try{
 		int c_id=Integer.valueOf(request.getParameter("C_ID"));
 		String str=request.getParameter("C_NAME");
-		System.out.println(c_id+str);
+		logger.info(c_id+str);
 		Category cat = new Category(c_id, str);
 		categoryDao.persist(cat);
 		List<Category> list=categoryDao.getAllCategories();
@@ -233,7 +237,7 @@ ModelAndView mv = new ModelAndView("index");
 		try{
 		int s_id=Integer.valueOf(request.getParameter("S_ID"));
 		String str=request.getParameter("S_NAME");
-		System.out.println(s_id+str);
+		logger.info(s_id+str);
 		Supplier sap = new Supplier(s_id, str);
 		supplierDao.persist(sap);
 		List<Category> list=categoryDao.getAllCategories();
@@ -253,12 +257,12 @@ ModelAndView mv = new ModelAndView("index");
 	{
 		ModelAndView m=null;
 		try{
-		System.out.println(request.getParameter("pId"));
-		System.out.println(request.getParameter("pName"));
-		System.out.println(request.getParameter("pPrice"));
-		System.out.println(request.getParameter("pCategory"));
-		System.out.println(request.getParameter("pSupplier"));
-		System.out.println(request.getParameter("pImg"));
+			logger.info(request.getParameter("pId"));
+		logger.info(request.getParameter("pName"));
+		logger.info(request.getParameter("pPrice"));
+		logger.info(request.getParameter("pCategory"));
+		logger.info(request.getParameter("pSupplier"));
+		logger.info(request.getParameter("pImg"));
 		Product product=new Product();
 		product.setP_id(Integer.parseInt(request.getParameter("pId")));
 		product.setP_name(request.getParameter("pName"));
@@ -273,7 +277,7 @@ ModelAndView mv = new ModelAndView("index");
 String filepath = request.getSession().getServletContext().getRealPath("/") + "/resources/images/product/" + file.getOriginalFilename();
 		
 
-		System.out.println(filepath);
+         logger.info(filepath);
 		try {
 			byte imagebyte[] = file.getBytes();
 			BufferedOutputStream fos = new BufferedOutputStream(new FileOutputStream(filepath));
@@ -301,7 +305,7 @@ String filepath = request.getSession().getServletContext().getRealPath("/") + "/
 	public ModelAndView deleteProduct(HttpServletRequest request){
 		
 		Product p=productDao.findById(Integer.valueOf(request.getParameter("id")));
-		System.out.print(p);
+		logger.info(p);
 	productDao.delete(p);
 	List<Product> list=productDao.getAllProducts();
 	ModelAndView mv = new ModelAndView("productlist");	
@@ -324,13 +328,13 @@ String filepath = request.getSession().getServletContext().getRealPath("/") + "/
 	@RequestMapping(value="/admin/product_update")
 	public ModelAndView product_update(HttpServletRequest request)
 	{
-	    System.out.println("In Product Update....");
-		System.out.println(request.getParameter("pId"));
-		System.out.println(request.getParameter("pName"));
-		System.out.println(request.getParameter("pPrice"));
-		System.out.println(request.getParameter("pCategory"));
-		System.out.println(request.getParameter("pSupplier"));
-		System.out.println(request.getParameter("pImg"));
+		logger.info("In Product Update....");
+		logger.info(request.getParameter("pId"));
+		logger.info(request.getParameter("pName"));
+		logger.info(request.getParameter("pPrice"));
+		logger.info(request.getParameter("pCategory"));
+		logger.info(request.getParameter("pSupplier"));
+		logger.info(request.getParameter("pImg"));
 		Product product=new Product();
 		product.setP_id(Integer.parseInt(request.getParameter("pId")));
 		product.setP_name(request.getParameter("pName"));
@@ -425,7 +429,7 @@ String filepath = request.getSession().getServletContext().getRealPath("/") + "/
 		
 		/*UserModel c=user1.findById(uid);
 		SupplierModel s=supplierDAO.findById(sid);*/
-		System.out.println(""+id+""+quan+"");
+		logger.info(""+id+""+quan+"");
 		Product p=productDao.findById(id);
 		int price=p.getP_price();
 		Cart g=new Cart();
@@ -437,7 +441,7 @@ String filepath = request.getSession().getServletContext().getRealPath("/") + "/
 		
 		List<Cart> list=cart1.checkExistance(id);
 		int count=list.size();
-		System.out.println("no of times"+count);
+		logger.info("no of times"+count);
 		if(count==0)
 		{
 			cart1.save(g);
@@ -445,12 +449,12 @@ String filepath = request.getSession().getServletContext().getRealPath("/") + "/
 		{
 			Cart cart=cart1.findById(list.get(0).getCartid());
 			int ex=g.getQuantity();
-			System.out.println("------------");
+			logger.info("------------");
 			int tot=ex+quan;
 			cart.setQuantity(tot);
 			cart1.update(cart);
 		}
-		System.out.println(g);
+		logger.info(g);
 		
 		List<Cart> cartList=cart1.getAll();
 		ModelAndView mv = new ModelAndView("display");//productDetails
