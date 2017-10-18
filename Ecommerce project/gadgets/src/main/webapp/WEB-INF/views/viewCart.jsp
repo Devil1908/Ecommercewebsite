@@ -19,7 +19,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
-<body style="background-color:Aquamarine ">
+<body style="background-color:Maroon  ">
 <jsp:include page="header.jsp" />
 <br>
 <div class="col-md-10 col-md-offset-1">

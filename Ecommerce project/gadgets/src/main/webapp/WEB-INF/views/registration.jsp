@@ -98,7 +98,7 @@ span.psw {
 </style>
   
 </head>
-<body style="background-color:Aquamarine ">
+<body style="background-color:Maroon  ">
 <jsp:include page="header.jsp" />
 <!-- <form action="register" method="post"> -->
 

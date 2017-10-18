@@ -38,9 +38,9 @@ else if(passwrd.length<6)
 
 </head>
 
-<body style="background-color:Aquamarine ">
+<body style="background-color:Maroon  ">
 <jsp:include page="header.jsp" />
-<b><h2 align="center" style="color:green">Login Form</h2></b> 
+<b><h2 align="center" style="color:MediumBlue ">Login Form</h2></b> 
 
 <div class="container" style="padding:50px 0">
 	

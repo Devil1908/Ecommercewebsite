@@ -26,7 +26,7 @@
  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet"/>
 </head>
 <br>
-<body style="background-color:Aquamarine ">
+<body style="background-color:Maroon  ">
 		<jsp:include page="header.jsp" />
 	
 	<div class="container-fluid">		

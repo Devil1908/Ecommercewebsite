@@ -23,7 +23,7 @@
  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet"/>
 </head>
 <br>
-<body style="background-color:Aquamarine ">
+<body style="background-color:Maroon ">
 		
 	<jsp:include page="header.jsp" />
 	<div class="container-fluid">		
@@ -49,7 +49,7 @@
                     <br>
 						<center>
 							<!-- <img id="item-display" src="./resources/images/fig2.jpg" alt="" width="40%" height="30%"></img> -->
-							<img id="item-display" src="./resources/images/fig2.jpg" alt="" width="150" height="150"></img>
+							<img id="item-display" src="./resources/images/fig5.jpg" alt="" width="150" height="150"></img>
 						</center>
 					</div>
 					
@@ -57,7 +57,7 @@
 				</div>
 					
 				<div class="col-md-7">
-				<div class="product-title">Bangales Collection </div>
+				<div class="product-title">T-shirt Collection </div>
 				
 					<%-- <div class="product-desc"></div> --%>
 					<div class="product-rating"><i class="fa fa-star gold"></i> <i class="fa fa-star gold"></i> <i class="fa fa-star gold"></i> <i class="fa fa-star gold"></i> <i class="fa fa-star-o"></i> 

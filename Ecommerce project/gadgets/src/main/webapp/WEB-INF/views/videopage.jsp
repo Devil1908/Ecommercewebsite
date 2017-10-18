@@ -21,7 +21,7 @@
 <link href="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.9/themes/blitzer/jquery-ui.css"
     rel="stylesheet" type="text/css" />
 </head>
-<body style="background-color:Aquamarine">
+<body style="background-color:Maroon ">
 <jsp:include page="header.jsp" />
 
 <iframe src="https://www.youtube.com/watch?v=Z7z77wB_Jmw&index=1&list=PLAXbOMavY3k1XfiVm_io4RYVwZM6TQo1G"
